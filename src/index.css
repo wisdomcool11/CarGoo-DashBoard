@@ -1,0 +1,300 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+
+/* header */
+header {
+    @apply relative bg-stone-800 w-full rounded-xl p-2 
+    text-white font-normal flex justify-center items-center gap-2 
+}
+
+/* list styling */
+.list_style{
+    @apply hover:border hover:border-[#ee8f00] hover:text-[#ee8f00] 
+    p-1 rounded-md hover:shadow-lg text-xs md:text-sm transform hover:scale-[1]  
+    active:translate-y-[4px] transition ease-in-out duration-75 
+}
+
+
+/* user log out */
+.logout {
+    @apply py-2 px-3 md:px-3  hover:bg-[#ee8f00] hover:text-stone-800 hover:font-semibold  
+    hover:rounded-full transform hover:scale-[1.03] active:translate-y-[4px] 
+    transition ease-in-out duration-150
+}
+
+/* user display profile / name */
+.user_display-profile {
+    @apply py-2 px-3 md:px-3 hover:bg-transparent hover:text-[#ee8f00] text-white
+    font-light active:text-[#ee8f00] md:mx-2 transform hover:scale-[1.03] 
+    active:translate-y-[4px] transition ease-in-out duration-150 flex justify-center items-center  gap-2
+}
+
+/* nav container */
+nav{
+    @apply md:block z-10 md:relative md:top-0 bg-stone-800 w-full 
+    text-slate-300 font-normal p-2 mt-2 rounded rounded-b-lg 
+}
+
+
+@media (max-width: 768px) {
+/* here is the problem fix today### */
+    /* nav */
+    nav{
+        position: absolute;
+        top: 4.3rem;
+        left: 50%;
+        transform: translate(-50%) scaleY(0);
+        width: 100%;
+        min-width: 350px;
+ 
+        max-height: 0px;
+        overflow: hidden;
+        opacity: 0;
+ 
+        transition: transform 300ms ease, opacity 250ms ease;
+     }
+ 
+     header.active nav {
+         z-index: 5;
+         background-color: rgb(41 37 36 / var(--tw-bg-opacity, 1));
+         padding: 9px 16px;
+         border-radius: 1rem;
+ 
+         max-height: 21.875rem;/* 350px*/
+         transform: translateX(-50%) scaleY(1);
+         opacity: 1;
+ 
+         animation: fadeIn 0.4s ease-in-out;
+     }
+
+     @keyframes fadeIn {
+        from{
+            opacity: 0;
+            transform: translate(-50%, -12px);
+        }
+        to{
+            opacity: 1;
+            transform: translate(-50%, 0);
+        }
+    }
+    
+    /* toggle bar */
+    .toggle_bar{
+        position: relative;
+        width: 26px;
+        height: 20px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    
+    .toggle_bar::before {
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: aliceblue;
+        transform: translateY(-10px);
+        box-shadow: 0 10px aliceblue;
+        transition: transform 300ms ease-in-out, 
+        box-shodow 300ms ease-in-out;
+    }
+    
+    .toggle_bar::after{
+        content: '';
+        position: absolute;
+        width: 100%;
+        height: 2px;
+        background-color: aliceblue;
+        transform: translateY(10px);
+        transition: transform 300ms ease-in-out;
+    }
+
+    header.active .toggle_bar::before{
+        box-shadow: 0 0 aliceblue;
+        transform: rotate(45deg);
+        transition: transform 300ms ease-in-out;
+    }
+
+    header.active .toggle_bar::after {
+        transform: rotate(315deg);
+        transition: transform 300ms ease-in-out;
+    }
+}
+
+.hero__container{
+
+    background-image: linear-gradient(
+        to top, rgba(0,0,0,0.6)50%, rgba(0,0,0,0.6)50%
+    ) ,url('/image/ship_admin_hero.jpg');
+    background-repeat:  no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+
+/* sub-divider */
+.sub-divider{
+    @apply text-[#ee8f00]
+}
+
+.sub-profile__menu-list button{
+    @apply text-sm text-stone-200 font-semibold hover:text-[#ee8f00] 
+    active:translate-y-[3px] transition ease-in
+}
+
+/* profile tool container */
+.profile--tool__container {
+    @apply w-full flex flex-col md:grid 
+    md:grid-flow-col md:grid-rows-2 gap-2
+}
+.profile--tool__container-Log {
+    @apply w-full flex flex-col gap-2
+}
+
+.tool-link{
+    @apply absolute top-[48px] right-[20px] 
+    font-extrabold
+}
+
+/* profile tool icons */
+.profile-icon{
+    @apply text-2xl text-[#ee8f00]
+}
+
+.tool-card{
+    @apply relative w-full h-[200px] 
+    rounded-xl shadow-md p-4 flex flex-col 
+    justify-center gap-5 border-red-600
+}
+
+.tool-card-contactForm{
+    @apply h-[400px] pl-16
+}
+
+.profile--tool__container_edit{
+    @apply h-full
+}
+
+.contact-form_edit{
+    @apply w-full h-full
+}
+
+.account__payment-card {
+    @apply items-center 
+}
+
+.contact--info__card{
+    /* @apply h-screen */
+}
+
+.tool-card_edit{
+    @apply h-full
+}
+
+.tool-card__two-step-psw{
+    @apply h-full
+}
+.tool-card__two-step-psw p{
+    @apply md:w-[480px] text-sm
+}
+.tool-card__two-step-psw h4{
+    @apply md:w-[480px] text-lg font-bold
+}
+
+.two-step,.two-step_verification {
+    @apply block
+}
+
+
+.two-step-box{
+    @apply flex flex-col gap-2
+}
+
+.two-step-box-para{
+    @apply text-xs font-extrabold
+}
+
+/*  */
+.formActive{
+    display: initial;
+    transition: display 1s ease-in-out;
+}
+
+
+.contact-form_edit{
+    width: 600px;
+    /* border: 3px solid red; */
+    margin: 0px auto;
+}
+
+.input-control{
+    width: 100%;
+    padding: 3px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-bottom: 0.8rem;
+}
+
+/* input label */
+.input-label{
+    width: 100%;
+    color: #888;
+    font-size: 0.8rem;
+    padding-left: 1rem 0px 1rem 1rem;
+}
+
+
+.input-control input{
+    width: 100%;
+    padding: 3px;
+    color: #000;
+    background-color: #ffff;
+    border-bottom: 1px solid #ee8f00;
+    border-radius: 8px ;
+    font-size: 1rem;
+    padding-left: 0.8rem;
+    outline: none;
+
+   display: flex;
+   flex-direction: column;
+   gap: 6rem;
+   transition: border 0.5ms ease-in;
+}
+
+.input-control input:hover{
+    border-top: 4px solid #ee8f00;
+}
+
+.choose-country{
+    margin-left: 30px;
+
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+.choose-country select{
+    width: 70px;
+    height: 40px;
+    border-radius: 1rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@media (max-width: 640px) {
+    .contact-form_edit{
+        width: 100%;
+        /* background-color: red; */
+    }
+
+    .input-control input{
+        font-size: 0.9rem;
+        padding: 0.5rem;
+    }
+}
