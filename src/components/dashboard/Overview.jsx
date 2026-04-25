@@ -1,9 +1,32 @@
 
 import React from "react"
+import { DashBoardContext } from "./DashBoard";
+
+// importing 
+import ContactInfo from "./ContactInfo";
+import ShippingAdmin from "./ShippingAdmin";
+import LogSecurity from "./LogSecurity";
 
 export default function Overview (){
+    
+    const{overviewPage, setOverviewPage} = React.useContext(DashBoardContext)
+
     return (
-        // <!-- main body -->
+        <>
+            {overviewPage === "main" && <OverviewPage setOverviewPage={setOverviewPage} />}
+            {overviewPage === "contact" && <ContactInfo /> }
+            {overviewPage === "shipping" && <ShippingAdmin />}
+            {overviewPage === "security" &&  <LogSecurity />}
+        </>
+    )
+}
+
+
+
+function OverviewPage (){
+
+    const {setOverviewPage} = React.useContext(DashBoardContext)
+    return (
         <div className="w-full md:w-2/3 h-full md:h-screen mt-20 md:mt-0 ">
 
             {/* <!-- content --> */}
@@ -28,27 +51,42 @@ export default function Overview (){
                         <p>
                             Please confirm your contact information is current.
                         </p>
-                        <a href="/public/user-page/contact_info_edit.html" className="tool-link self-start text-[#007ab7] font-bold text-xs ">UPDATE</a>
+                        <button 
+                            className="tool-link self-start 
+                            text-[#007ab7] font-bold text-xs "
+                            onClick={()=> setOverviewPage("contact")}
+                        >
+                            UPDATE
+                        </button>
                     </div >
 
                     {/* <!-- tool card 2  --> */}
                     <div className="tool-card ">
-                       <i className="fa-solid fa-box-open profile-icon"></i>
+                    <i className="fa-solid fa-box-open profile-icon"></i>
                         <h3>Add a shipping account</h3>
                         <p>
                             Get exclusive benefits when you create a Cargoo® shipping account.
                         </p>
-                        <a href="#" className="tool-link self-start text-[#007ab7] font-bold text-xs ">ADD</a>
+                        <button 
+                            onClick={()=> setOverviewPage("shipping")}
+                            className="tool-link self-start text-[#007ab7] font-bold text-xs ">
+                            ADD
+                        </button>
                     </div >
 
                     {/* <!-- tool card 3 --> */}
                     <div className="tool-card">
-                      <i className="fa-sharp fa-solid fa-key profile-icon "></i>
+                    <i className="fa-sharp fa-solid fa-key profile-icon "></i>
                         <h3>Enable Two-Step Verification</h3>
                         <p>
                             Add a layer of security - sign into your account with a secure code.
                         </p>
-                        <a href="/public/user-page/log_&_security.html" className="tool-link self-start text-[#007ab7] font-bold text-xs ">SET UP</a>
+                        <button className="tool-link self-start text-[#007ab7] font-bold text-xs "
+                            onClick={()=> setOverviewPage("security")}
+                        >
+                            SET UP
+                        </button>
+
                     </div >
 
                 </div>
@@ -57,4 +95,5 @@ export default function Overview (){
         </div>
     )
 }
+
 

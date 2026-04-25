@@ -6,23 +6,32 @@ import ContactInfo from "./ContactInfo"
 import AccountPayment from "./AccountPayment"
 import ShippingAdmin from "./ShippingAdmin"
 import Preference from "./Preference"
-// import ContactInfoEdit from "./ContactInfoEdit"
+
+
+const DashBoardContext = React.createContext();
 
 export default function Dashboards(){
 
+    // state variables
     const[isShown, setShown] = React.useState ("menu1")
+    const[overviewPage, setOverviewPage] = React.useState("main")
 
     return (
-        <section className="bg-stone-150 py-20 px-2 md:px-4 w-full 
-        h-full flex flex-col md:flex-row ">
-            <Asidemenu setShown={setShown}/>
-            {isShown === "menu1" && <Overview />} 
-            {isShown === "menu2" && <LogSecurity />}
-            {isShown === "menu3" && <ContactInfo />}
-            {isShown === "menu4" && <AccountPayment />}
-            {isShown === "menu5" && <ShippingAdmin />}
-            {isShown === "menu6" && <Preference />}
-            {/* <ContactInfoEdit /> */}
-        </section>
+        <DashBoardContext.Provider value={{ setShown, overviewPage, setOverviewPage }}>
+            <section className="bg-stone-150 py-20 px-2 md:px-4 w-full 
+            h-full flex flex-col md:flex-row ">
+                <Asidemenu />
+
+                {/* dash board side menu button */}
+                {isShown === "menu1" && <Overview />} 
+                {isShown === "menu2" && <LogSecurity />}
+                {isShown === "menu3" && <ContactInfo />}
+                {isShown === "menu4" && <AccountPayment />}
+                {isShown === "menu5" && <ShippingAdmin />}
+                {isShown === "menu6" && <Preference />}
+            </section>
+        </DashBoardContext.Provider>
     )
 }
+
+export {DashBoardContext}

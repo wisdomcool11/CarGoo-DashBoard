@@ -1,7 +1,10 @@
 
 import React from "react"
+import { DashBoardContext } from "./DashBoard"
 
 export default function LogSecurity (){
+
+    const{isSetUpTwoFaceVerification} = React.useContext (DashBoardContext)
     
     // state variable
     const [isChecked, setChecked] = React.useState(false)
