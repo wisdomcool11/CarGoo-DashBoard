@@ -59,13 +59,13 @@ function ShippingBody (){
                 </p>
             </div>
             
-            <div className="grid grid-rows-2 grid-cols-3 justify-center items-center gap-5 ">
+            <div className="grid grid-rows-2 grid-cols-3 justify-center items-center gap-1 ">
 
-                <h2 className="font-normal text-4xl col-span-3 col-start-1 row-start-1 ">
+                <h2 className="font-normal text-2xl md:text-3xl col-span-3 col-start-1 row-start-1 text-center ">
                     {`There's` } no substitute for the right tools
                 </h2>
                 <p className="admin--text col-span-3  ">
-                    FedEx Administration gives you all the capabilities you need to administer an entire shipping department, 
+                    CarGoo Administration gives you all the capabilities you need to administer an entire shipping department, 
                     no matter its size. And everything’s packaged in a responsive interface that adapts to your workflow and 
                     screen size — it’s built by professionals, for professionals.
                 </p>

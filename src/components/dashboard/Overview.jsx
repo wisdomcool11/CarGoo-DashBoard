@@ -7,6 +7,12 @@ import ContactInfo from "./ContactInfo";
 import ShippingAdmin from "./ShippingAdmin";
 import LogSecurity from "./LogSecurity";
 
+// react-icon
+import { FaTriangleExclamation } from "react-icons/fa6";
+import { FaDropbox } from "react-icons/fa6";
+import { FaKey } from "react-icons/fa6";
+import { FaTruck } from "react-icons/fa6";
+
 export default function Overview (){
     
     const{overviewPage, setOverviewPage} = React.useContext(DashBoardContext)
@@ -47,7 +53,8 @@ function OverviewPage (){
 
                     {/* <!-- tool card 1 --> */}
                     <div className="tool-card ">
-                        <i className="fa-solid fa-triangle-exclamation profile-icon"></i>
+                        {/* <i className="fa-solid fa-triangle-exclamation profile-icon"></i> */}
+                        <FaTriangleExclamation className="profile-icon"/>
                         <h3>Review your information</h3>
                         <p>
                             Please confirm your contact information is current.
@@ -63,7 +70,8 @@ function OverviewPage (){
 
                     {/* <!-- tool card 2  --> */}
                     <div className="tool-card ">
-                    <i className="fa-solid fa-box-open profile-icon"></i>
+                    {/* <i className="fa-solid fa-box-open profile-icon"></i> */}
+                        <FaDropbox className="profile-icon"/>   
                         <h3>Add a shipping account</h3>
                         <p>
                             Get exclusive benefits when you create a Cargoo® shipping account.
@@ -75,9 +83,25 @@ function OverviewPage (){
                         </button>
                     </div >
 
+                    {/* <!-- tool card 2  --> */}
+                    <div className="tool-card ">
+                    {/* <i className="fa-solid fa-box-open profile-icon"></i> */}
+                        <FaTruck className="profile-icon"/>
+                        <h3>Manage your deliveries</h3>
+                        <p>
+                        Use FedEx Delivery Manager® to take more control of your deliveries.
+                        </p>
+                        <button 
+                            onClick={()=> setOverviewPage("shipping")}
+                            className="tool-link self-start text-[#007ab7] font-bold text-xs ">
+                            ENROLL
+                        </button>
+                    </div >
+
                     {/* <!-- tool card 3 --> */}
                     <div className="tool-card">
-                    <i className="fa-sharp fa-solid fa-key profile-icon "></i>
+                        {/* <i className="fa-sharp fa-solid fa-key profile-icon "></i> */}
+                        <FaKey className="profile-icon" />
                         <h3>Enable Two-Step Verification</h3>
                         <p>
                             Add a layer of security - sign into your account with a secure code.
