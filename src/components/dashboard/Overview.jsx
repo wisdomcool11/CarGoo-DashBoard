@@ -25,9 +25,10 @@ export default function Overview (){
 
 function OverviewPage (){
 
-    const {setOverviewPage} = React.useContext(DashBoardContext)
+    const {setOverviewPage ,scrollRef} = React.useContext(DashBoardContext)
+    
     return (
-        <div className="w-full md:w-2/3 h-full md:h-screen mt-20 md:mt-0 ">
+        <div ref={scrollRef} className="w-full md:w-2/3 h-full md:h-screen mt-20 md:mt-0 ">
 
             {/* <!-- content --> */}
             <div className="space-y-4">

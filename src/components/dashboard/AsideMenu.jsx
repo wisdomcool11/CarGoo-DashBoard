@@ -3,7 +3,7 @@ import { DashBoardContext } from "./DashBoard";
 
 export default function Asidemenu (){
 
-    const {setShown , setOverviewPage} = React.useContext(DashBoardContext)
+    const {setShown ,setOverviewPage , } = React.useContext(DashBoardContext)
 
     return (
         <aside className="w-full md:w-1/3 h-full px-2 space-y-6 md:space-y-16">
@@ -11,7 +11,7 @@ export default function Asidemenu (){
                 <div className="sub-profile__menu-list self-start space-y-5 list-image-[url(/src/imgs/icons/check-mark.png)] list-inside">
                     <button onClick={()=> {
                             setShown("menu1");
-                            setOverviewPage ("main")
+                            setOverviewPage ("main");
                         }} 
                         className="text-[#ee8f00]"
                     >

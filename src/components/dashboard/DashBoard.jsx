@@ -16,8 +16,27 @@ export default function Dashboards(){
     const[isShown, setShown] = React.useState ("menu1")
     const[overviewPage, setOverviewPage] = React.useState("main")
 
+    const scrollRef = React.useRef(null)
+
+    React.useEffect(()=>{
+        
+        if(scrollRef.current && window.innerWidth < 768){
+            scrollRef.current.scrollIntoView ({
+                behavior: "smooth",
+                block : "start"
+            })    
+        }
+    },[isShown, overviewPage])//if any of this is true/clicked, run the block.
+
     return (
-        <DashBoardContext.Provider value={{ setShown, overviewPage, setOverviewPage }}>
+        <DashBoardContext.Provider 
+            value={{
+                setShown, 
+                overviewPage, 
+                setOverviewPage , 
+                scrollRef 
+            }}
+        >
             <section className="bg-stone-150 py-20 px-2 md:px-4 w-full 
             h-full flex flex-col md:flex-row ">
                 <Asidemenu />

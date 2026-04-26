@@ -4,7 +4,7 @@ import { DashBoardContext } from "./DashBoard"
 
 export default function LogSecurity (){
 
-    const{isSetUpTwoFaceVerification} = React.useContext (DashBoardContext)
+    const{scrollRef} = React.useContext (DashBoardContext)
     
     // state variable
     const [isChecked, setChecked] = React.useState(false)
@@ -20,7 +20,7 @@ export default function LogSecurity (){
     }
 
     return(
-        <div className="w-full md:w-2/3 h-full mt-20 md:mt-0">
+        <div ref={scrollRef} className="w-full md:w-2/3 h-full mt-20 md:mt-0">
 
             {/* <!-- content --> */}
             <div className="space-y-4">

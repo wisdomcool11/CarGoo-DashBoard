@@ -1,8 +1,13 @@
 import React from "react"
 import ContactInfoEdit from "./ContactInfoEdit"
+import { DashBoardContext } from "./DashBoard"
 
 export default function ContactInfo(){
 
+    // imported context variable
+    const {scrollRef} = React.useContext(DashBoardContext)
+
+    // local state variable
     const [isEdit, setEdit] = React.useState (false)
 
     function handleEdit (){
@@ -13,7 +18,7 @@ export default function ContactInfo(){
     return (
         <>
             { !isEdit ?
-                <div className="w-full md:w-2/3 mt-20 md:mt-0">
+                <div ref={scrollRef} className="w-full md:w-2/3 mt-20 md:mt-0">
 
                     {/* <!-- content --> */}
                     <div className="space-y-4">
@@ -53,7 +58,7 @@ export default function ContactInfo(){
                     
                     </div>
                 </div>
-                : <ContactInfoEdit setEdit={setEdit} />
+                : <ContactInfoEdit setEdit={setEdit} />//will open the edit page
             }
         
         </>

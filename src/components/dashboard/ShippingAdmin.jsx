@@ -1,8 +1,11 @@
 
+import React from "react"
+import { DashBoardContext } from "./DashBoard"
 
 export default function ShippingAdmin (){
+    const{scrollRef} = React.useContext(DashBoardContext)
     return (
-        <div>
+        <div ref={scrollRef}>
             <ShippingHero />
             <ShippingBody />
         </div>
