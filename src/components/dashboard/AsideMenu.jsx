@@ -3,17 +3,19 @@ import { DashBoardContext } from "./DashBoard";
 
 export default function Asidemenu (){
 
-    const {setShown ,setOverviewPage , } = React.useContext(DashBoardContext)
+    const {setShown ,setOverviewPage } = React.useContext(DashBoardContext)
 
     return (
         <aside className="w-full md:w-1/3 h-full px-2 space-y-6 md:space-y-16">
-            <div className=" w-full md:w-[300px] h-full space-y-7 bg-stone-800 flex flex-col justify-center items-center p-8 rounded-xl">
+
+            <div className="w-full md:w-[300px] h-full space-y-7 bg-stone-800 flex flex-col justify-center items-center p-8 rounded-xl">
+                
                 <div className="sub-profile__menu-list self-start space-y-5 list-image-[url(/src/imgs/icons/check-mark.png)] list-inside">
                     <button onClick={()=> {
                             setShown("menu1");
                             setOverviewPage ("main");
                         }} 
-                        className="text-[#ee8f00]"
+                    
                     >
                         OVERVIEW
                     </button>
@@ -25,9 +27,11 @@ export default function Asidemenu (){
                     <hr className="sub-divider" />
                     <button onClick={()=> setShown("menu4")}>ACCOUNTS & PAYMENTS</button>
                     <hr className="sub-divider " />
-                    <button onClick={()=> setShown("menu5")}>SHIPPING ADMINISTRATION</button>
+                    <button onClick={()=> setShown("menu5")}>FEDEX DELIVERY MANAGER</button>
                     <hr className="sub-divider " />
-                    <button onClick={(()=> setShown("menu6"))}>PREFERANCES</button>
+                    <button onClick={()=> setShown("menu6")}>SHIPPING ADMINISTRATION</button>
+                    <hr className="sub-divider " />
+                    <button onClick={(()=> setShown("menu7"))}>PREFERANCES</button>
                 </div>
             </div>
         </aside>

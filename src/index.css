@@ -147,6 +147,7 @@ nav{
     active:translate-y-[3px] transition ease-in
 }
 
+
 /* profile tool container */
 .profile--tool__container {
     @apply w-full flex flex-col md:grid 
@@ -264,7 +265,7 @@ nav{
    display: flex;
    flex-direction: column;
    gap: 6rem;
-   transition: border 0.5ms ease-in;
+   transition: border-top 0.6ms ease-in;
 }
 
 .input-control input:hover{
@@ -298,3 +299,5 @@ nav{
         padding: 0.5rem;
     }
 }
+
+

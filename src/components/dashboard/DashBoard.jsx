@@ -6,6 +6,7 @@ import ContactInfo from "./ContactInfo"
 import AccountPayment from "./AccountPayment"
 import ShippingAdmin from "./ShippingAdmin"
 import Preference from "./Preference"
+import FedexDeliveryManager from "./FedexDeliveryManager"
 
 
 const DashBoardContext = React.createContext();
@@ -39,6 +40,8 @@ export default function Dashboards(){
         >
             <section className="bg-stone-150 py-20 px-2 md:px-4 w-full 
             h-full flex flex-col md:flex-row ">
+                
+                {/* dashboard buttons */}
                 <Asidemenu />
 
                 {/* dash board side menu button */}
@@ -46,8 +49,9 @@ export default function Dashboards(){
                 {isShown === "menu2" && <LogSecurity />}
                 {isShown === "menu3" && <ContactInfo />}
                 {isShown === "menu4" && <AccountPayment />}
-                {isShown === "menu5" && <ShippingAdmin />}
-                {isShown === "menu6" && <Preference />}
+                {isShown === "menu5" && <FedexDeliveryManager />}
+                {isShown === "menu6" && <ShippingAdmin />}
+                {isShown === "menu7" && <Preference />}
             </section>
         </DashBoardContext.Provider>
     )

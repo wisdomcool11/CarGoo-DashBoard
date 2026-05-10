@@ -1,6 +1,7 @@
 
 import React from "react"
 import { DashBoardContext } from "./DashBoard"
+import Button from "../button/Button"
 
 export default function AccountPayment (){
 
@@ -26,11 +27,9 @@ export default function AccountPayment (){
 
                         {/* <!-- tool card 1 --> */}
                         <div className="tool-card account__payment-card ">
-                            <a href="#" className=" bg-[#ee8f00] text-white w-[180px] 
-                            h-[60px] font-bold text-lg flex justify-center items-center rounded-lg
-                            ">
+                            <Button>
                                 Pay Now
-                            </a>
+                            </Button>
                         </div >
 
                     </div>

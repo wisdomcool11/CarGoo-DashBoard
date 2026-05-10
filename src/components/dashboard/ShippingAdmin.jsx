@@ -1,6 +1,7 @@
 
 import React from "react"
 import { DashBoardContext } from "./DashBoard"
+import Button from "../button/Button"
 
 export default function ShippingAdmin (){
     const{scrollRef} = React.useContext(DashBoardContext)
@@ -90,9 +91,9 @@ function ShippingBody (){
                 </div>
 
                 <div className="account__payment-card row-start-4 col-start-2 col-end-2 mt-4 " >
-                    <a href="#" className= "bg-[#ee8f00] text-white w-[180px] h-[60px] font-bold text-lg flex justify-center items-center rounded-lg">
+                    <Button>
                         GET STARTED
-                    </a>
+                    </Button>
                 </div>
             </div>
 

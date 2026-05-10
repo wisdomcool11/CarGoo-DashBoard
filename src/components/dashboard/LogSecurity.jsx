@@ -63,7 +63,7 @@ export default function LogSecurity (){
                             Choose when you want to use two-step verification. CarGoo may override these settings and 
                             require verification when we detect suspicious behavior.
                         </p>
-                        <a href="#" className="tool-link self-start text-[#007ab7] font-bold text-xs ">ADD</a>
+                        {/* <a href="#" className="tool-link self-start text-[#007ab7] font-bold text-xs ">ADD</a> */}
                         <div className="w-full">
                             <h4>Two-step verification at login</h4>
 

@@ -6,12 +6,45 @@ import { DashBoardContext } from "./DashBoard";
 import ContactInfo from "./ContactInfo";
 import ShippingAdmin from "./ShippingAdmin";
 import LogSecurity from "./LogSecurity";
+import FedexDeliveryManager from "./FedexDeliveryManager";
+
+const overViewCard = [
+    {
+        key: 1,
+        icon : <FaTriangleExclamation className="profile-icon"/>,
+        title: "Review your information",
+        text: "Please confirm your contact information is current.",
+        page: "contact",
+        button: "UPDATE"
+    },
+    {
+        key: 2,
+        icon : <FaDropbox className="profile-icon"/> ,
+        title: "Add a shipping account",
+        text: "Get exclusive benefits when you create a Cargoo® shipping account.",
+        page: "shipping",
+        button: "ADD"
+    },
+    {
+        key: 3,
+        icon :  <FaTruck className="profile-icon"/>,
+        title: "Manage your deliveries",
+        text: " Use FedEx Delivery Manager® to take more control of your deliveries.",
+        page: "fedexManger",
+        button: "ENROLL"
+    },
+    {
+        key: 4,
+        icon :  <FaKey className="profile-icon" />,
+        title: "Enable Two-Step Verification",
+        text: "  Add a layer of security - sign into your account with a secure code.",
+        page: "security",
+        button: "SET"
+    }
+]
 
 // react-icon
-import { FaTriangleExclamation } from "react-icons/fa6";
-import { FaDropbox } from "react-icons/fa6";
-import { FaKey } from "react-icons/fa6";
-import { FaTruck } from "react-icons/fa6";
+import { FaTriangleExclamation ,FaDropbox, FaKey, FaTruck } from "react-icons/fa6";
 
 export default function Overview (){
     
@@ -23,6 +56,7 @@ export default function Overview (){
             {overviewPage === "contact" && <ContactInfo /> }
             {overviewPage === "shipping" && <ShippingAdmin />}
             {overviewPage === "security" &&  <LogSecurity />}
+            {overviewPage === "fedexManger" && <FedexDeliveryManager />}
         </>
     )
 }
@@ -52,67 +86,25 @@ function OverviewPage (){
                 <div className="profile--tool__container">
 
                     {/* <!-- tool card 1 --> */}
-                    <div className="tool-card ">
-                        {/* <i className="fa-solid fa-triangle-exclamation profile-icon"></i> */}
-                        <FaTriangleExclamation className="profile-icon"/>
-                        <h3>Review your information</h3>
-                        <p>
-                            Please confirm your contact information is current.
-                        </p>
-                        <button 
-                            className="tool-link self-start 
-                            text-[#007ab7] font-bold text-xs "
-                            onClick={()=> setOverviewPage("contact")}
-                        >
-                            UPDATE
-                        </button>
-                    </div >
-
-                    {/* <!-- tool card 2  --> */}
-                    <div className="tool-card ">
-                    {/* <i className="fa-solid fa-box-open profile-icon"></i> */}
-                        <FaDropbox className="profile-icon"/>   
-                        <h3>Add a shipping account</h3>
-                        <p>
-                            Get exclusive benefits when you create a Cargoo® shipping account.
-                        </p>
-                        <button 
-                            onClick={()=> setOverviewPage("shipping")}
-                            className="tool-link self-start text-[#007ab7] font-bold text-xs ">
-                            ADD
-                        </button>
-                    </div >
-
-                    {/* <!-- tool card 2  --> */}
-                    <div className="tool-card ">
-                    {/* <i className="fa-solid fa-box-open profile-icon"></i> */}
-                        <FaTruck className="profile-icon"/>
-                        <h3>Manage your deliveries</h3>
-                        <p>
-                        Use FedEx Delivery Manager® to take more control of your deliveries.
-                        </p>
-                        <button 
-                            onClick={()=> setOverviewPage("shipping")}
-                            className="tool-link self-start text-[#007ab7] font-bold text-xs ">
-                            ENROLL
-                        </button>
-                    </div >
-
-                    {/* <!-- tool card 3 --> */}
-                    <div className="tool-card">
-                        {/* <i className="fa-sharp fa-solid fa-key profile-icon "></i> */}
-                        <FaKey className="profile-icon" />
-                        <h3>Enable Two-Step Verification</h3>
-                        <p>
-                            Add a layer of security - sign into your account with a secure code.
-                        </p>
-                        <button className="tool-link self-start text-[#007ab7] font-bold text-xs "
-                            onClick={()=> setOverviewPage("security")}
-                        >
-                            SET UP
-                        </button>
-
-                    </div >
+                    {overViewCard.map(card => {
+                        return (
+                            <div key={card.key} className="tool-card ">
+                                {/* <i className="fa-solid fa-triangle-exclamation profile-icon"></i> */}
+                                {card.icon}
+                                <h3>{card.title}</h3>
+                                <p>
+                                    {card.text}
+                                </p>
+                                <button 
+                                    className="tool-link self-start 
+                                    text-[#007ab7] font-bold text-xs "
+                                    onClick={()=> setOverviewPage(card.page)}
+                                >
+                                    {card.button}
+                                </button>
+                            </div >
+                        )
+                    })}
 
                 </div>
             
