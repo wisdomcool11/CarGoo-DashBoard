@@ -29,7 +29,7 @@ header {
 .user_display-profile {
     @apply py-2 px-3 md:px-3 hover:bg-transparent hover:text-[#ee8f00] text-white
     font-light active:text-[#ee8f00] md:mx-2 transform hover:scale-[1.03] 
-    active:translate-y-[4px] transition ease-in-out duration-150 flex justify-center items-center  gap-2
+    active:translate-y-[4px] transition ease-in-out duration-150 flex justify-center items-center gap-1
 }
 
 /* nav container */
